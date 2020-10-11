@@ -1,8 +1,9 @@
-#include <stdio.h> 
-#include <stdlib.h> 
-
-void MENU(); 
-void leerOperando(double* op);
+#include <stdio.h>
+#include <stdlib.h>
+void MENU();
+double SUMA(double* , double* );
+double RESTA(double* , double* );
+void leerOperando(double* );
 
 int main(){
   MENU();
@@ -32,11 +33,11 @@ void MENU(){
             break;
         case 3:
             printf("Sumar operandos: ");
-            SUMA();
+            SUMA(&op1, &op2);
             break;
         case 4:
             printf("Restar operandos: ");
-            res = RESTA();
+            res = RESTA(&op1,  &op2);
             break;
         case 5: 
             printf("Gracias por utilizar mi pr%cctica\n", 160);
@@ -44,7 +45,7 @@ void MENU(){
         default:
             printf("\n Opci%cn inexistente, por favor ingresa una opci%cn v%clida\n", 162, 162, 160);
             break;
-		}printf("op1 = %lf op2 = %lf res = %lf\n\n",op1,op2,res);
+		}printf("op1 = %lf op2 = %lf res = %lf\n\n",op1,op2,res, valorS);
     }while(option=!5);
 }
 
@@ -54,11 +55,13 @@ void leerOperando(double* op){
     scanf("%lf",&x); 
     *op = x; 
 }
-
-void SUMA(){
-    suma = op1 + op2;
-}
-
-void RESTA(){
-    resta = op1 - op2;
-}
+double RESTA(double* a, double* b){
+    double valorR;
+    valorR = *a - *b;
+    return valorR;
+}  
+double SUMA(double* j, double* k){
+    double valorS;
+   valorS = *j + *k;
+   return valorS;
+} 
