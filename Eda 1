@@ -1,0 +1,64 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+
+void MENU(); 
+void leerOperando(double* op);
+
+int main(){
+  MENU();
+}
+
+void MENU(){
+    int option;
+    double op1, op2, res, resta, suma;
+    do{
+        printf("\n--------------------PRACTICA 02-------------------------\n");
+			printf("\t(1) Leer primer operando.\n");
+			printf("\t(2) Leer segundo operando.\n");
+			printf("\t(3) Sumar operandos.\n");
+			printf("\t(4) Restar operandos.\n");
+			printf("\t(5) Salir.\n");
+		printf("----------------------------------------------------------\n");
+		printf("\n\tIngresa una opci%cn: ", 162);
+		scanf("%d", &option);
+		switch(option){
+        case 1:
+            printf("\nPrimer operando: ");
+            leerOperando(&op1);
+            break;
+        case 2: 
+            printf("Segundo operando: ");
+            leerOperando(&op2);
+            break;
+        case 3:
+            printf("Sumar operandos: ");
+            SUMA();
+            break;
+        case 4:
+            printf("Restar operandos: ");
+            res = RESTA();
+            break;
+        case 5: 
+            printf("Gracias por utilizar mi pr%cctica\n", 160);
+            break;
+        default:
+            printf("\n Opci%cn inexistente, por favor ingresa una opci%cn v%clida\n", 162, 162, 160);
+            break;
+		}printf("op1 = %lf op2 = %lf res = %lf\n\n",op1,op2,res);
+    }while(option=!5);
+}
+
+void leerOperando(double* op){ 
+    double x; 
+    printf("Valor del operando? "); 
+    scanf("%lf",&x); 
+    *op = x; 
+}
+
+void SUMA(){
+    suma = op1 + op2;
+}
+
+void RESTA(){
+    resta = op1 - op2;
+}
