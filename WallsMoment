@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int leerOpcion(); /* declaramos la existencia */
+void leerOperando(double* o);
+void MENU();
+void SUMA(double* a, double* b, double *c);
+void RESTA(double* a, double* b, double* c);
+
+int main(){
+
+    int opcion;
+    double op1, op2, res;
+    printf("Hola buenas tardes!\n");
+    do {
+        opcion = leerOpcion(); /*definimos la existencia */
+        switch (opcion) {
+            case 1: printf("Leer operando 1:\n");
+                leerOperando(&op1);
+                break;
+            case 2: printf("Leer operando 2\n");
+                leerOperando(&op2);
+                break;
+            case 3: printf("suma de operandos\n");
+                SUMA(&op1, &op2, &res);
+                break;
+            case 4: printf("resta de operandos\n");
+                RESTA(&op1, &op2, &res);
+                break;
+            case 5: printf("Hasta luego\n");    
+               break;
+               return 0;
+            default: printf("Opcion no reconocida %d\n",opcion);
+               break;
+        }
+        printf("op1 = %0.2lf op2 = %0.2lf resultado = %0.2lf \n\n",op1,op2,res);
+    } while(opcion !=5);
+}
+
+void leerOperando(double* o) {
+    double x;
+    printf("Valor del operando? ");
+    scanf("%lf",&x);
+    *o = x;
+
+}
+int leerOpcion() {
+    int respuesta;
+    do {
+        MENU();
+        printf("Cual es tu eleccion? ");
+        scanf("%d",&respuesta);
+        if (respuesta<0 || respuesta>5) {
+            printf("Hay un error en tu eleccion!\n");
+            printf("Valores solo entre 0 y 5 por favor\n");
+        }
+    } while(respuesta<0 || respuesta>5);
+    printf("voy a salir de la funcion\n");
+    return respuesta;
+
+}
+void MENU() {
+    printf("[5] Terminar\n");
+    printf("[1] Leer operando 1\n");
+    printf("[2] Leer operando 2\n");
+    printf("[3] sumar operandos\n");
+    printf("[4] restar operandos\n");
+
+}
+void RESTA(double* a, double* b, double* c){
+    *c = *a - *b;
+}
+void SUMA(double* a, double* b, double *c){
+    *c = *a + *b;
+}
