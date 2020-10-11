@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+int leerOpcion(); /* declaramos la existencia */
+void MENU();
+double SUMA(double* , double* );
+double RESTA(double* , double* );
+void leerOperando(double* );
+
+int main(){
+
+    int opcion;
+    double op1, op2, res, suma;
+    printf("JODER buenas tardes!\n");
+    do {
+        opcion = leerOpcion(); /*definimos la existencia */
+        switch (opcion) {
+            case 1: printf("Leer operando 1:\n");
+                leerOperando(&op1);
+                break;
+            case 2: printf("Leer operando 2\n");
+                leerOperando(&op2);
+                break;
+            case 3: printf("suma de operandos\n");
+                suma = SUMA(&op1, &op2);
+                break;
+            case 4: printf("resta de operandos\n");
+                res = RESTA(&op1, &op2);
+                break;
+            case 5: printf("Hasta luego\n");
+               break;
+               return 0;
+            default: printf("Opcion no reconocida %d\n",opcion);
+               break;
+        }
+        printf("op1 = %0.2lf op2 = %0.2lf res = %0.2lf suma = %0.2lf\n\n",op1,op2,res,suma);
+    } while(opcion !=5);
+}
+void leerOperando(double *op) {
+    double x;
+    printf("Valor del operando? ");
+    scanf("%lf",&x);
+    *op = x;
+
+}
+int leerOpcion() {
+    int respuesta;
+    do {
+        MENU();
+        printf("Cual es tu eleccion? ");
+        scanf("%d",&respuesta);
+        if (respuesta<0 || respuesta>4) {
+            printf("Hay un error en tu eleccion!\n");
+            printf("Valores solo entre 0 y 4 por favor\n");
+        }
+    } while(respuesta<0 || respuesta>4);
+    printf("voy a salir de la funcion\n");
+    return respuesta;
+
+}
+
+void MENU() {
+    printf("[5] Terminar\n");
+    printf("[1] Leer operando 1\n");
+    printf("[2] Leer operando 2\n");
+    printf("[3] sumar operandos\n");
+    printf("[4] restar operandos\n");
+
+}
+double RESTA(double* a, double* b){
+    double valorR;
+    valorR = *a - *b;
+    return valorR;
+}  
+double SUMA(double* j, double* k){
+    double valorS;
+   valorS = *j + *k;
+   return valorS;
+} 
