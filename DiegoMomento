@@ -59,11 +59,13 @@ int leerOpcion() {
 }
 
 void MENU() {
-    printf("[5] Terminar\n");
-    printf("[1] Leer operando 1\n");
-    printf("[2] Leer operando 2\n");
-    printf("[3] sumar operandos\n");
-    printf("[4] restar operandos\n");
+    printf("\n--------------------PRACTICA 02-------------------------\n");
+			printf("\t(1) Leer primer operando.\n");
+			printf("\t(2) Leer segundo operando.\n");
+			printf("\t(3) Sumar operandos.\n");
+			printf("\t(4) Restar operandos.\n");
+			printf("\t(5) Salir.\n");
+		printf("----------------------------------------------------------\n");
 
 }
 double RESTA(double* a, double* b){
